@@ -20,7 +20,7 @@
 
 			</div><!-- .wrap -->
 			
-			<?php if ( is_page()) get_sidebar( 'subsidiary' ); // Loads the sidebar-subsidiary.php template. ?>
+			<?php //if ( is_page()) get_sidebar( 'subsidiary' ); // Loads the sidebar-subsidiary.php template. ?>
 			
 			<?php get_template_part( 'menu', 'primary-mobile' ); // Loads the menu-primary-mobile.php template. ?>
 		

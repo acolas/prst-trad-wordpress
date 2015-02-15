@@ -449,11 +449,12 @@ color: black;
 
 /*menu*/
 #menu-primary {
-  height: 2.6em;
+  height: 2.62em;
 }
 
 #menu-primary li a {
-  font: 0.88em/2em Arial,sans-serif;
+  font: 0.85em/2.1em Arial, sans-serif; /* 12px / 16px = 0.75 */
+  padding: 0.416666667em 1.16666667em 0.583333333em; /* 7px / 12px = 0.583333333 and 14px / 12px = 1.16666667 */
   font-weight: bold;
 }
 
@@ -530,4 +531,61 @@ img {
   font-style: italic;
   font-weight: bold;
   margin-bottom: 2em;
+}
+
+/* Width. */
+#menu-primary .wrap,
+#menu-secondary .wrap,
+#main .wrap,
+#header,
+#sidebar-subsidiary .wrap,
+#menu-subsidiary .wrap {
+max-width: 90em;
+} 
+
+#main .wrap{
+  background-image: -moz-linear-gradient(center bottom , rgb(237, 237, 237) 0%, rgb(255, 255, 255) 58%);border-bottom: 1px solid #dddddd;overflow: hidden;position: relative;width: 100%;
+} 
+
+#header-homepage{
+  height: 350px;
+}
+
+#spe-homepage .spe-trad{
+  width:47%;
+  float:left;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+    position: relative;
+}
+
+#spe-homepage .spe-trad h2{
+ text-align: center;
+}
+
+#spe-homepage{
+  height: 350px;
+  padding-bottom: 75px;
+}
+
+
+#domaine-homepage{ 
+  margin-top: 75px;
+}
+
+#domaine-homepage .domaine-trad{
+  width:17%;
+  float:left;
+    min-height: 1px;
+    padding-top: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    position: relative;
+}
+
+#domaine-homepage .domaine-trad h2{
+ text-align: center;  
+ height: 64px;
+
 }
