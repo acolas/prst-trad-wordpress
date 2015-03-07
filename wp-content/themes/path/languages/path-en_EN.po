@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Path\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-11-10 20:47+0200\n"
-"PO-Revision-Date: 2012-11-10 20:47+0200\n"
+"POT-Creation-Date: 2013-01-04 14:13+0200\n"
+"PO-Revision-Date: 2013-01-04 14:13+0200\n"
 "Last-Translator: Sami Keijonen <sami.keijonen@foxnet.fi>\n"
 "Language-Team: Foxnet <sami.keijonen@foxnet.fi>\n"
 "Language: en\n"
@@ -158,71 +158,59 @@ msgid ""
 "before=\"| Tagged \"]"
 msgstr ""
 
-#: functions.php:328
+#: functions.php:322
 msgid "Copyright &#169; [the-year] [site-link]."
 msgstr ""
 
-#: functions.php:328
+#: functions.php:322
 msgid "Powered by [wp-link] and [theme-link]."
 msgstr ""
 
-#: functions.php:328
+#: functions.php:322
 msgid " <a class=\"top\" href=\"#container\">Back to Top</a>"
 msgstr ""
 
-#: functions.php:339
+#: functions.php:333
 msgid "Please comment with your real name using good manners."
 msgstr ""
 
-#: functions.php:350
+#: functions.php:344
 msgid "Read more &rarr;"
 msgstr ""
 
-#: functions.php:386
+#: functions.php:380
 msgid "Twitter Username"
 msgstr ""
 
-#: functions.php:405
+#: functions.php:399
 msgid "Author of the article"
 msgstr ""
 
-#: functions.php:405
+#: functions.php:399
 msgid "Authors of the article"
 msgstr ""
 
-#: functions.php:422 functions.php:443 functions.php:463
+#: functions.php:416 functions.php:437 functions.php:457
 #, php-format
 msgid "Follow %1$s %2$s &#64;%3$s on Twitter."
 msgstr ""
 
-#: functions.php:453
+#: functions.php:447
 msgid "Article written by [entry-author]"
 msgstr ""
 
-#: functions.php:483 functions.php:502
+#: functions.php:477 functions.php:496
 msgid "and"
 msgstr ""
 
-#: functions.php:484
+#: functions.php:478
 msgid ""
 " [entry-published] [entry-comments-link before=\" | \"] [entry-edit-link "
 "before=\" | \"]"
 msgstr ""
 
-#: functions.php:503
+#: functions.php:497
 msgid " [entry-published]"
-msgstr ""
-
-#: functions.php:550
-msgid "Customize"
-msgstr ""
-
-#: functions.php:571 admin/functions-admin.php:56
-msgid "Layout"
-msgstr ""
-
-#: functions.php:598 admin/functions-admin.php:118
-msgid "Global Layout:"
 msgstr ""
 
 #: header.php:90
@@ -342,6 +330,10 @@ msgstr ""
 msgid "Background"
 msgstr ""
 
+#: admin/functions-admin.php:56
+msgid "Layout"
+msgstr ""
+
 #: admin/functions-admin.php:74
 msgid "Custom logo:"
 msgstr ""
@@ -364,12 +356,15 @@ msgid ""
 "Appearance &gt;&gt; Background</a>. "
 msgstr ""
 
-#: admin/functions-admin.php:128
+#: admin/functions-admin.php:118
+msgid "Customize:"
+msgstr ""
+
+#: admin/functions-admin.php:121
+#, php-format
 msgid ""
-"Set the layout for the entire site. The default layout is 2 columns with "
-"content on the left. You can overwrite this value in individual post or "
-"page. Note! Three column layouts will only work if you use Primary and "
-"Secondary Widget areas and browser window is wide enough."
+"Want to set Global layout and set other features? <a href=\"%s\">Go to "
+"Appearance &gt;&gt; Customize</a>. "
 msgstr ""
 
 #: includes/widget-most-viewed.php:32

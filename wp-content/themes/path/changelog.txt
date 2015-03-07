@@ -1,3 +1,18 @@
+19.8.2013 - version 0.2.1
+
+* Updated Hybrid Core to version 1.6.
+* Menu + sign updated for sub menus. Not using image anymore.
+* Chat post format updated.
+* .pot file added.
+* Finnish translations added.
+* style.min.css added.
+
+4.1.2013 - version 0.2
+
+* Updated Hybrid Core to version 1.5.
+
+* Remove global layout from theme settings. Note! This might mean that you have to set global layout again under Appearance >> Customize.
+
 23.10.2012 - version 0.1.4
 
 * Updated Hybrid Core to version 1.4.3.

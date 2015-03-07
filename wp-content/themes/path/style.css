@@ -1,12 +1,19 @@
 /**
- * Development stylesheet.  Use this file for development purposes by adding this to your 'wp-config.php' file:
- * define( 'SCRIPT_DEBUG', true );
- * This allows you to build large-sized stylesheets with plenty notes and comments. Before releasing, compress
- * this file and replace the compressed CSS in the 'style.css' file.
- * @link http://www.cssdrive.com/index.php/main/csscompressor
+ * Theme Name: Path
+ * Theme URI: http://themehybrid.com/themes/path
+ * Description: Path is designed for multiauthor blogs and magazine style websites. But who am I to tell you what to do with the theme. Feel free to use it for whatever you like. It supports plenty of plugins like Gravity Forms, Co-Authors Plus, Smart Archives Reloaded and Social Path. It's responsive, it supports post formats, it's translation-ready and so much more. You can set global layout in theme settings: one column, two columns or three columns. You can have the content on the left, right or center. You can also set logo, background and footer text in theme settings. There are 5 widget areas, 3 menu locations and 9 page templates (most popular articles by comments or views in different time span, archives, authors, tag cloud and slider) in the theme. And guess what, sticky posts are in a cool FlexSlider. I hope you enjoy Path Theme as much I do. Cheers!
+ * Version: 0.2.1.2
+ * Author: Sami Keijonen
+ * Author URI: http://foxnet.fi/en
+ * Tags: post-formats, sticky-post, theme-options, threaded-comments, translation-ready, one-column, two-columns, three-columns, flexible-width, left-sidebar, right-sidebar, custom-background, custom-header, featured-images, editor-style, red, white, light
+ * Text Domain: path
+ * License: GNU General Public License v2.0
+ * License URI: http://www.gnu.org/licenses/gpl-2.0.html
+ * Copyright (c) Sami Keijonen.  All rights reserved.
+ * http://foxnet.fi
  */
  
-/* =CSS Resets (Normalize). @link: https://raw.github.com/necolas/normalize.css/master/normalize.css
+ /* =CSS Resets (Normalize). @link: https://raw.github.com/necolas/normalize.css/master/normalize.css
 -------------------------------------------------------------- */
 article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary{ display:block}audio,canvas,video{ display:inline-block; *display:inline; *zoom:1}audio:not([controls]){ display:none; height:0}[hidden]{ display:none}html{ font-size:100%; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%}html,button,input,select,textarea{ font-family:sans-serif}body{ margin:0}a:focus{ outline:thin dotted}a:hover,a:active{ outline:0}h1{ font-size:2em; margin:0.67em 0}h2{ font-size:1.5em; margin:0.83em 0}h3{ font-size:1.17em; margin:1em 0}h4{ font-size:1em; margin:1.33em 0}h5{ font-size:0.83em; margin:1.67em 0}h6{ font-size:0.75em; margin:2.33em 0}abbr[title]{ border-bottom:1px dotted}b,strong{ font-weight:bold}blockquote{ margin:1em 40px}dfn{ font-style:italic}mark{ background:#ff0; color:#000}p,pre{ margin:1em 0}pre,code,kbd,samp{ font-family:monospace,serif; _font-family:'courier new',monospace; font-size:1em}pre{ white-space:pre; white-space:pre-wrap; word-wrap:break-word}q{ quotes:none}q:before,q:after{ content:''; content:none}small{ font-size:75%}sub,sup{ font-size:75%; line-height:0; position:relative; vertical-align:baseline}sup{ top:-0.5em}sub{ bottom:-0.25em}dl,menu,ol,ul{ margin:1em 0}dd{ margin:0 0 0 40px}menu,ol,ul{ padding:0 0 0 40px}nav ul,nav ol{ list-style:none; list-style-image:none}img{ border:0; -ms-interpolation-mode:bicubic}svg:not(:root){ overflow:hidden}figure{ margin:0}form{ margin:0}fieldset{ border:1px solid #c0c0c0; margin:0 2px; padding:0.35em 0.625em 0.75em}legend{ border:0; padding:0; white-space:normal; *margin-left:-7px}button,input,select,textarea{ font-size:100%; margin:0; vertical-align:baseline; *vertical-align:middle}button,input{ line-height:normal}button,input[type="button"],input[type="reset"],input[type="submit"]{ cursor:pointer; -webkit-appearance:button; *overflow:visible}button[disabled],input[disabled]{ cursor:default}input[type="checkbox"],input[type="radio"]{ box-sizing:border-box; padding:0; *height:13px; *width:13px}input[type="search"]{ -webkit-appearance:textfield; -moz-box-sizing:content-box; -webkit-box-sizing:content-box; box-sizing:content-box}input[type="search"]::-webkit-search-decoration,input[type="search"]::-webkit-search-cancel-button{ -webkit-appearance:none}button::-moz-focus-inner,input::-moz-focus-inner{ border:0; padding:0}textarea{ overflow:auto; vertical-align:top}table{ border-collapse:collapse; border-spacing:0}.alignleft,.left{float:left;margin:1em 1.25em 0.5em 0}.alignright,.right{float:right;margin:1em 0 0.5em 1.25em}.aligncenter,.center{display:block;margin:1em auto}.alignnone,.block{clear:both;margin:1em 0}.clear{clear:both}blockquote.alignleft,blockquote.alignright{width:33%}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}
 
@@ -58,6 +65,11 @@ a,
 input[type=submit],
 input[type=button],
 input[type=text],
+input[type="email"],
+input[type="url"],
+input[type=tel],
+input[type=number],
+input[type=password],
 textarea {
 	-webkit-transition: all 0.2s ease-out;
     -moz-transition: all 0.2s ease-out;
@@ -152,6 +164,11 @@ acronym,
 abbr {
 	border-bottom: 1px dotted #999;
 }
+
+/* Sticky, by author. */
+.sticky,
+.bypostauthor {
+} 
 
 /* Tables. */
 table {
@@ -526,6 +543,16 @@ h3.menu-secondary-mobile-title {
 .taxonomy-post_format-video .hentry {
 	background: #e9edf1;
 	padding: 3%;
+}
+.format-chat .chat-author {
+	font-weight: bold;
+}
+.format-chat .chat-text {
+	margin-left: 14px;
+	margin-left: 1rem;
+}
+.format-chat .chat-text p {
+	margin-top: 0;
 }
 
 /* Post titles. */
@@ -903,12 +930,18 @@ ol.comment-list {
 }
 
 /* Comment form inputs and textarea elements. */
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type=tel],
+input[type=number],
+input[type=password],
 #respond input[type="text"],
 #respond textarea {
 	background: #e9edf1;
 	border: 1px solid #e5e5e5;
-	-moz-box-sizing: border-box; 
-	-webkit-box-sizing: border-box; 
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
@@ -918,9 +951,16 @@ ol.comment-list {
 	padding: 0.5em;
 	width: 100%;
 }
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type=tel]:focus,
+input[type=number]:focus,
+input[type=password]:focus,
 #respond input[type="text"]:focus,
 #respond textarea:focus {
 	background: #fff;
+	border: 1px solid #e5e5e5;
 }
 
 /* Submit button. */
@@ -1251,27 +1291,24 @@ body .fb_edge_widget_with_comment{
 #menu-primary a.sf-with-ul {
 	padding-right: 2.33333333em; /* 28px / 12px = 2.33333333 */
 }
-#menu-primary li .sf-sub-indicator {
-	background: url('images/menu-plus.png') no-repeat 0 0;
-	overflow: hidden;
+#menu-primary ul .sf-with-ul > a:after {
+	content: "\002B"; /* Plus sign. */
+	float: right;
+	padding-left: 8px;
+	padding-left: 0.5rem;
 	position: absolute;
-	top: 1.16666667em; /* 14px / 12px = 1.16666667 */
-	right: 1em; /* 12px / 12px = 1 */
-	width: 6px;
-	height: 6px;
-	text-indent: -9999em;
 }
-#menu-primary li a:hover .sf-sub-indicator,
-#menu-primary li.sfHover .sf-sub-indicator,
-#menu-primary li.current-menu-item .sf-sub-indicator {
-	background-position: 0 -6px;
+#menu-primary ul .sf-with-ul > a {
+	padding-right: 24px;
+	padding-right: 1.71428571rem;
+	padding-right: 1.5rem;
+ }
+#menu-primary ul ul .sf-with-ul > a:after {
+	position: static;
 }
-#menu-primary li ul li .sf-sub-indicator,
-#menu-primary li ul li.current-menu-item li .sf-sub-indicator {
-	background-position: 0 -6px !important;
-	top: 1.41666667em; /* 17px / 12px = 1.41666667 */
-	width: 6px;
-	height: 6px;
+#menu-primary  ul ul .sf-with-ul > a {
+	padding-right: 8px;
+	padding-right: 0.5rem;
 }
 
 /* Search form. */
@@ -1385,31 +1422,27 @@ body .fb_edge_widget_with_comment{
 }
 	
 /* Sub-nav indicator. */
-#menu-secondary a.sf-with-ul {
-	padding-right: 2.54545455em; /* 28px / 11px = 2.54545455 */
-}
-#menu-secondary li .sf-sub-indicator {
-	background: url('images/menu-plus.png') no-repeat 0 0;
-	background-position: 0 -6px;
-	overflow: hidden;
+#menu-primary ul .menu-item-parent > a:after,
+#menu-secondary ul .menu-item-parent > a:after  {
+	content: "\002B"; /* Plus sign. */
+	float: right;
+	padding-left: 8px;
+	padding-left: 0.5rem;
 	position: absolute;
-	top: 1.18181818em; /* 13px / 11px = 1.18181818 */
-	right: 1.09090909em; /* 12px / 11px = 1.09090909 */
-	width: 6px;
-	height: 6px;
-	text-indent: -9999em;
 }
-#menu-secondary li a:hover .sf-sub-indicator, 
-#menu-secondary li.sfHover .sf-sub-indicator,
-#menu-secondary li.current-menu-item .sf-sub-indicator {
-	background-position: 0 -12px;
+#menu-primary ul .menu-item-parent > a,
+#menu-secondary ul .menu-item-parent > a {
+	padding-right: 24px;
+	padding-right: 1.5rem;
 }
-#menu-secondary li ul li .sf-sub-indicator,
-#menu-secondary li ul li.current-menu-item li .sf-sub-indicator {
-	background-position: 0 -6px !important;
-	top: 1.18181818em; /* 13px / 11px = 1.18181818 */
-	width: 6px;
-	height: 6px;
+#menu-primary ul ul .menu-item-parent > a:after,
+#menu-secondary ul ul .menu-item-parent > a:after {
+	position: static;
+}
+#menu-primary  ul ul .menu-item-parent > a,
+#menu-secondary  ul ul .menu-item-parent > a  {
+	padding-right: 8px;
+	padding-right: 0.5rem;
 }
 
 /* Width. */
@@ -1596,7 +1629,7 @@ img {
 .layout-3c-l #content,
 .layout-3c-c #content {
 	float: left;
-	width: 70%; /* 4% for margin */
+	width: 64%; /* 4% for margin */
 }
 .layout-2c-l #sidebar-primary,
 .layout-default #sidebar-primary,

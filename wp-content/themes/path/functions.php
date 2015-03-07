@@ -30,10 +30,6 @@ function path_theme_setup() {
 
 	/* Get action/filter hook prefix. */
 	$prefix = hybrid_get_prefix();
-	
-	/* Add theme settings. */
-	if ( is_admin() )
-	    require_once( trailingslashit ( get_template_directory() ) . 'admin/functions-admin.php' );
 
 	/* Add theme support for core framework features. */
 	add_theme_support( 'hybrid-core-menus', array( 'primary', 'secondary', 'subsidiary' ) );
@@ -41,7 +37,8 @@ function path_theme_setup() {
 	add_theme_support( 'hybrid-core-widgets' );
 	add_theme_support( 'hybrid-core-shortcodes' );
 	add_theme_support( 'hybrid-core-theme-settings', array( 'about', 'footer' ) );
-	add_theme_support( 'hybrid-core-drop-downs' );
+	add_theme_support( 'hybrid-core-scripts', array( 'drop-downs' ) );
+	add_theme_support( 'hybrid-core-styles', array( 'style' ) );
 	add_theme_support( 'hybrid-core-seo' );
 	add_theme_support( 'hybrid-core-template-hierarchy' );
 	
@@ -55,6 +52,7 @@ function path_theme_setup() {
 	add_theme_support( 'entry-views' );
 	add_theme_support( 'cleaner-gallery' );
 	add_theme_support( 'cleaner-caption' );
+	add_theme_support( 'hybrid-core-media-grabber' );
 	
 	/* Add theme support for WordPress features. */
 	
@@ -65,7 +63,7 @@ function path_theme_setup() {
 	add_theme_support( 'automatic-feed-links' );
 	
 	/* Add support for post formats. */
-	add_theme_support( 'post-formats', array( 'aside', 'audio', 'image', 'gallery', 'link', 'quote', 'status', 'video' ) );
+	add_theme_support( 'post-formats', array( 'aside', 'audio', 'chat', 'image', 'gallery', 'link', 'quote', 'status', 'video' ) );
 	
 	/* Add custom background feature. */
 	add_theme_support( 'custom-background', array(
@@ -140,12 +138,6 @@ function path_theme_setup() {
 	/* Add social media buttons after singular post entry. Facebook like, twitter tweet and google+. This uses Social Path Plugin. */
 	add_action( "{$prefix}_singular-post_after_singular", 'path_add_social_media' );
 	
-	/* Set global layout. */
-	add_filter( 'get_theme_layout', 'path_theme_layout' );
-	
-	/* Add Customize link to Appearance menu in admin. */
-	add_action ( 'admin_menu', 'path_admin_customize' );
-	
 	/* Add layout option in Customize. */
 	add_action( 'customize_register', 'path_customize_register' );
 	
@@ -157,6 +149,9 @@ function path_theme_setup() {
 	
 	/* Register additional widgets. */
 	add_action( 'widgets_init', 'path_register_widgets' );
+	
+	/* Add menu-item-parent class to parent menu items.  */
+	add_filter( 'wp_nav_menu_objects', 'path_add_menu_parent_class' );
 	
 }
 
@@ -304,6 +299,7 @@ function path_google_fonts() {
  * format to easily find the link for the post. 
  *
  * @since 0.1.0
+ * @deprecated since 0.2.1. Use hybrid_get_the_post_format_url() insted.
  * @return string The link if found.  Otherwise, the permalink to the post.
  *
  * @note This is a modified version of the twentyeleven_url_grabber() function in the TwentyEleven theme. And this modified version is from MyLife (themehybrid.com) theme.
@@ -325,7 +321,7 @@ function path_url_grabber() {
  */
 function path_default_footer_settings( $settings ) {
     
-    $settings['footer_insert'] = '<p class="copyright">' . __( 'Copyright &#169; [the-year] [site-link].', 'path' ) . '</p>' . "\n\n" . '<p class="credit">' . __( 'Powered by [wp-link] and [theme-link].', 'path' ) . __( ' <a class="top" href="#container">Back to Top</a>', 'path' ) . '</p>';
+    $settings['footer_insert'] = '<p class="copyright">' . _x( 'Copyright &#169; [the-year] [site-link].', 'Filter footer info', 'path' ) . '</p>' . "\n\n" . '<p class="credit">' . _x( 'Powered by [wp-link] and [theme-link].', 'Filter footer info', 'path' ) . __( ' <a class="top" href="#container">Back to Top</a>', 'path' ) . '</p>';
     
     return $settings;
 }
@@ -522,36 +518,6 @@ function path_add_social_media() {
 }
 
 /**
- * Filter global layout, which is defined under Appearance >> Theme Settings.
- * @since 0.1.0
- */
-function path_theme_layout( $layout ) {
-
-	/* Get global layout. */
-	$path_global_layout = hybrid_get_setting( 'path_global_layout' );
-	
-	if ( !$path_global_layout )
-		return $layout;
-
-	if ( 'layout-default' == $layout )
-		$layout = $path_global_layout;
-
-	return $layout;
-	
-}
-
-/**
- * Add the Customize link to the admin menu.
- * @link: http://ottopress.com/2012/theme-customizer-part-deux-getting-rid-of-options-pages/
- * @since 0.1.0
- */
-function path_admin_customize() {
-
-	add_theme_page( __( 'Customize', 'path' ), __( 'Customize', 'path' ), 'edit_theme_options', 'customize.php' );
-	
-}
-
-/**
  * Add layout option in theme Customize.
  * @link: http://ottopress.com/2012/how-to-leverage-the-theme-customizer-in-your-own-themes/
  * @since 0.1.0
@@ -565,42 +531,6 @@ function path_customize_register( $wp_customize ) {
 		$wp_customize->get_setting( 'blogname' )->transport = 'postMessage';
 	}
 	$wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
-	
-	// Layout section
-	$wp_customize->add_section( 'path_customize_layout', array(
-		'title'			=> __( 'Layout', 'path' ),
-		'priority'		=> 20,
-	) );
-	
-	// Layout setting
-	$wp_customize->add_setting( 'path_theme_settings[path_global_layout]', array(
-		'type'				=> 'option',
-		'default'			=> 'layout-default',
-		'capability'		=> 'edit_theme_options',
-		'sanitize_callback'	=> 'sanitize_key',
-		'transport'			=> 'postMessage',
-	) );
-	
-	/* Get theme layouts. */
-	$path_supported_layouts = get_theme_support( 'theme-layouts' );
-	$path_layouts = $path_supported_layouts[0]; // Array of all layouts without the 'layout-' prefix.
-	
-	/* Add layout-default to $path_layout_choices. */
-	$path_layout_choices['layout-default'] = theme_layouts_get_string( 'default' );
-	
-	/* Then add rest of what user had added in add_theme_support( 'theme-layouts' ). */
-	foreach ( $path_layouts as $path_layout ) {
-		$path_layout_choices["layout-{$path_layout}"] = theme_layouts_get_string( $path_layout );
-	}
-	
-	// Layout control
-	$wp_customize->add_control( 'path_theme_settings[path_global_layout]', array(
-		'label'			=>	__( 'Global Layout:', 'path' ),
-		'section'		=> 'path_customize_layout',
-		'settings'		=> 'path_theme_settings[path_global_layout]',
-		'type'			=> 'radio',
-		'choices'		=> $path_layout_choices,
-	) );
 	
 }
 
@@ -658,6 +588,33 @@ function path_register_widgets() {
 	/* Load and register the most-viewed posts widget. */
 	require_once( trailingslashit( THEME_DIR ) . 'includes/widget-most-viewed.php' );
 	register_widget( 'Path_Widget_Most_Viewed' );
+
+}
+
+/**
+ * Add menu-item-parent class to parent menu items. Thanks to Chip Bennett.
+ *
+ * @since 0.2.1
+ */
+function path_add_menu_parent_class( $items ) {
+
+	$parents = array();
+
+	foreach ( $items as $item ) {
+
+		if ( $item->menu_item_parent && $item->menu_item_parent > 0 )
+			$parents[] = $item->menu_item_parent;
+		
+	}
+
+	foreach ( $items as $item ) {
+
+		if ( in_array( $item->ID, $parents ) )
+			$item->classes[] = 'menu-item-parent';
+
+	}
+
+	return $items;    
 
 }
 

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Path PL\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-11-10 20:50+0200\n"
-"PO-Revision-Date: 2012-11-10 20:50+0200\n"
+"POT-Creation-Date: 2013-01-04 14:13+0200\n"
+"PO-Revision-Date: 2013-01-04 14:13+0200\n"
 "Last-Translator: Sami Keijonen <sami.keijonen@foxnet.fi>\n"
 "Language-Team: Persoft.pl <powrozek@persoft.pl>\n"
 "Language: en\n"
@@ -180,52 +180,52 @@ msgstr ""
 "[entry-terms taxonomy=\"category\" before=\"Kategorie: \"] [entry-terms "
 "before=\"| Tagi: \"]"
 
-#: functions.php:328
+#: functions.php:322
 msgid "Copyright &#169; [the-year] [site-link]."
 msgstr "Copyright &#169; [the-year] [site-link]."
 
-#: functions.php:328
+#: functions.php:322
 msgid "Powered by [wp-link] and [theme-link]."
 msgstr "Oparte na [wp-link] oraz [theme-link]."
 
-#: functions.php:328
+#: functions.php:322
 msgid " <a class=\"top\" href=\"#container\">Back to Top</a>"
 msgstr " <a class=\"top\" href=\"#container\">Do góry</a>"
 
-#: functions.php:339
+#: functions.php:333
 msgid "Please comment with your real name using good manners."
 msgstr "Prosimy o komentarz z Twoim prawdziwym imieniem i nazwiskiem."
 
-#: functions.php:350
+#: functions.php:344
 msgid "Read more &rarr;"
 msgstr "Więcej &rarr;"
 
-#: functions.php:386
+#: functions.php:380
 msgid "Twitter Username"
 msgstr "Użytkownik Twitter"
 
-#: functions.php:405
+#: functions.php:399
 msgid "Author of the article"
 msgstr "Autor artykułu"
 
-#: functions.php:405
+#: functions.php:399
 msgid "Authors of the article"
 msgstr "Autorzy artykułu"
 
-#: functions.php:422 functions.php:443 functions.php:463
+#: functions.php:416 functions.php:437 functions.php:457
 #, php-format
 msgid "Follow %1$s %2$s &#64;%3$s on Twitter."
 msgstr "Śledź %1$s %2$s &#64;%3$s na Twitterze."
 
-#: functions.php:453
+#: functions.php:447
 msgid "Article written by [entry-author]"
 msgstr "Artykuł napisany przez [entry-author]"
 
-#: functions.php:483 functions.php:502
+#: functions.php:477 functions.php:496
 msgid "and"
 msgstr "i"
 
-#: functions.php:484
+#: functions.php:478
 msgid ""
 " [entry-published] [entry-comments-link before=\" | \"] [entry-edit-link "
 "before=\" | \"]"
@@ -233,21 +233,9 @@ msgstr ""
 " [entry-published] [entry-comments-link before=\" | \"] [entry-edit-link "
 "before=\" | \"]"
 
-#: functions.php:503
+#: functions.php:497
 msgid " [entry-published]"
 msgstr ""
-
-#: functions.php:550
-msgid "Customize"
-msgstr "Dostosuj"
-
-#: functions.php:571 admin/functions-admin.php:56
-msgid "Layout"
-msgstr "Układ"
-
-#: functions.php:598 admin/functions-admin.php:118
-msgid "Global Layout:"
-msgstr "Główny układ:"
 
 #: header.php:90
 msgid "You are here:"
@@ -369,6 +357,10 @@ msgstr "Wgraj logo"
 msgid "Background"
 msgstr "Tło"
 
+#: admin/functions-admin.php:56
+msgid "Layout"
+msgstr "Układ"
+
 #: admin/functions-admin.php:74
 msgid "Custom logo:"
 msgstr "Własne logo:"
@@ -395,17 +387,19 @@ msgstr ""
 "Chcesz zmienić lub usunąć domyślne tło? <a href=\"%s\">Idź do Ustawienia &gt;"
 "&gt; Tło</a>. "
 
-#: admin/functions-admin.php:128
+#: admin/functions-admin.php:118
+#, fuzzy
+msgid "Customize:"
+msgstr "Dostosuj"
+
+#: admin/functions-admin.php:121
+#, fuzzy, php-format
 msgid ""
-"Set the layout for the entire site. The default layout is 2 columns with "
-"content on the left. You can overwrite this value in individual post or "
-"page. Note! Three column layouts will only work if you use Primary and "
-"Secondary Widget areas and browser window is wide enough."
+"Want to set Global layout and set other features? <a href=\"%s\">Go to "
+"Appearance &gt;&gt; Customize</a>. "
 msgstr ""
-"Ustaw układ dla całej witryny.Domyślny układ to 2 kolumny z zawartością po "
-"lewej stronie. Można nadpisać tę wartość w każdym poście lub stronie. Uwaga! "
-"Układ trzech kolumn będzie działać tylko jeśli używasz podstawowego i "
-"dodatkowego obszary Widget i okno przeglądarki jest wystarczająco szerokie."
+"Chcesz zamienić lub usunąć domyślne logo? <a href=\"%s\">Idź do Ustawienia "
+"&gt;&gt; Nagłówek</a>. "
 
 #: includes/widget-most-viewed.php:32
 msgid "Display top viewed posts."
@@ -488,5 +482,20 @@ msgstr ""
 msgid "More Articles"
 msgstr "Więcej artykułów"
 
+#~ msgid "Global Layout:"
+#~ msgstr "Główny układ:"
+
 #~ msgid "Next &rarr;"
 #~ msgstr "Następny &rarr;"
+
+#~ msgid ""
+#~ "Set the layout for the entire site. The default layout is 2 columns with "
+#~ "content on the left. You can overwrite this value in individual post or "
+#~ "page. Note! Three column layouts will only work if you use Primary and "
+#~ "Secondary Widget areas and browser window is wide enough."
+#~ msgstr ""
+#~ "Ustaw układ dla całej witryny.Domyślny układ to 2 kolumny z zawartością "
+#~ "po lewej stronie. Można nadpisać tę wartość w każdym poście lub stronie. "
+#~ "Uwaga! Układ trzech kolumn będzie działać tylko jeśli używasz "
+#~ "podstawowego i dodatkowego obszary Widget i okno przeglądarki jest "
+#~ "wystarczająco szerokie."

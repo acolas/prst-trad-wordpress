@@ -34,7 +34,7 @@ get_header(); // Loads the header.php template. ?>
 					
 						<?php get_sidebar( 'after-singular' ); // Loads the sidebar-after-singular.php template. ?>
 
-						<?php if (!is_page()) comments_template( '/comments.php', true ); // Loads the comments.php template. ?>
+						<?php comments_template( '/comments.php', true ); // Loads the comments.php template. ?>
 
 					<?php } ?>
 
