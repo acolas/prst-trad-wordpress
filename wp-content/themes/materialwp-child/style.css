@@ -19,6 +19,56 @@ body {
     background-repeat: repeat;
 }
 
+#primary{
+	-moz-hyphens: manual;
+    word-wrap: normal;
+    word-break: keep-all;
+}
+
+.description {
+    min-height: 100px;
+}
+
+.product-chooser-item {
+    min-height: 500px;
+}
+
+
+.col-xs-15,
+.col-sm-15,
+.col-md-15,
+.col-lg-15 {
+    position: relative;
+    min-height: 1px;
+    padding-right: 2px;
+    padding-left: 2px;
+}
+
+
+.col-xs-15 {
+    width: 20%;
+    float: left;
+}
+@media (min-width: 768px) {
+.col-sm-15 {
+        width: 20%;
+        float: left;
+    }
+}
+@media (min-width: 992px) {
+    .col-md-15 {
+        width: 20%;
+        float: left;
+    }
+}
+@media (min-width: 1200px) {
+    .col-lg-15 {
+        width: 20%;
+        float: left;
+    }
+}
+
+
 .navbar-inverse.navbar {
 	background-color: #ea8916;
 }
@@ -288,7 +338,7 @@ background-color: #F1F1F1;
 
 .bg_blur
 {
-    background-image:url('http://data2.whicdn.com/images/139218968/large.jpg');
+    background-image:url('http://publicdomainarchive.com/wp-content/uploads/2014/10/public-domain-images-archive-free-stock-photos-2-1000x666.jpg');
     height: 300px;
     background-size: cover;
 }
