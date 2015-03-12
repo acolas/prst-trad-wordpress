@@ -14,7 +14,7 @@ Text Domain:	materialwp-materialwp
 */
 
 body {
-    background-image: url("http://localhost:7888/wp-content/themes/path/images/path_bg.png");
+    background-image: url("../path/images/path_bg.png");
     background-position: left top;
     background-repeat: repeat;
 }
