@@ -15,14 +15,14 @@
  */
 get_header(); ?>
 
-<div class="container">
-	<div class="row">
+<div class="container-fluid">
+	<div class="row-fluid">
 
 	<div id="primary" class="col-md-12">
 		<main id="main" class="site-main" role="main">
 			<?php while ( have_posts() ) : the_post(); ?>
 
-				<?php get_template_part( 'content', 'page' ); ?>
+				<?php get_template_part( 'content', 'homepage' ); ?>
 
 			<?php endwhile; // end of the loop. ?>
 
