@@ -52,9 +52,8 @@ h1, .h1 {
 	background-image: -ms-linear-gradient(bottom, rgb(237,237,237) 0%, rgb(255,255,255) 58%);
 	background-image: -webkit-gradient( linear, left bottom, left top, color-stop(0, rgb(237,237,237)), color-stop(0.58, rgb(255,255,255)) );
 	border-bottom: 1px solid #dddddd;
-	padding-bottom: 25px;
-	margin-bottom: 25px;
-	padding-top: 50px;
+	margin-bottom: 50px;
+	padding-top: 30px;
 }
 
 #primary{
