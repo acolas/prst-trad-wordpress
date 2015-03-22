@@ -21,7 +21,7 @@ Text Domain:	materialwp-materialwp
 
 body {
 	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-	font-size: 14px;
+	font-size: 18px;
 	line-height: 1.42857143;
 	color: #fff;
 	background-color: #F1F1F1;
@@ -35,6 +35,13 @@ div.clear
 	clear: both;
 }
 
+h1, .h1 {
+    font-size: 66px;
+}
+
+.lead {
+    font-size: 27px;
+}
 
 .header-transparent {
 	background-image: -moz-linear-gradient(center bottom , #EDEDED 0%, #FFFFFF 58%);
@@ -45,9 +52,9 @@ div.clear
 	background-image: -ms-linear-gradient(bottom, rgb(237,237,237) 0%, rgb(255,255,255) 58%);
 	background-image: -webkit-gradient( linear, left bottom, left top, color-stop(0, rgb(237,237,237)), color-stop(0.58, rgb(255,255,255)) );
 	border-bottom: 1px solid #dddddd;
-	padding-bottom: 20px;
-	margin-bottom: 55px;
-	padding-top: 75px;
+	padding-bottom: 25px;
+	margin-bottom: 25px;
+	padding-top: 50px;
 }
 
 #primary{
